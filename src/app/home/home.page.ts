@@ -12,6 +12,7 @@ export class HomePage {
 
   public coords : any;
 
+  public tiempo: number = 0;
   public latitud: number = 0;
   public longitud: number = 0;
   public precision: number = 0;
@@ -19,6 +20,9 @@ export class HomePage {
   public altitudPrecision: number = 0;
   public velocidad: number = 0;
   public cabecera: number = 0;
+
+  public permisoLocation: string = "";
+  public permisoCoarseLocation: string = "";
 
   constructor() {
 
@@ -31,6 +35,7 @@ export class HomePage {
     const coordinates = await Geolocation.getCurrentPosition();
   
     //7 console.log('Current position:', coordinates);
+    this.tiempo = coordinates.timestamp;
 
     this.coords = coordinates.coords;
     this.latitud = coordinates.coords.latitude;
@@ -40,6 +45,9 @@ export class HomePage {
     if (coordinates.coords.altitudeAccuracy) this.altitudPrecision = coordinates.coords.altitudeAccuracy;
     if (coordinates.coords.speed) this.velocidad = coordinates.coords.speed;
     if (coordinates.coords.heading) this.cabecera =coordinates.coords.heading;
+  
+    this.permisoLocation = (await Geolocation.checkPermissions()).location;
+    this.permisoCoarseLocation = (await Geolocation.checkPermissions()).coarseLocation
   };
 
 }
