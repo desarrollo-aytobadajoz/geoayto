@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">geoayto</string>
+    <string name="title_activity_main">geoayto</string>
+    <string name="package_name">com.geoayto</string>
+    <string name="custom_url_scheme">com.geoayto</string>
+</resources>
