@@ -1,5 +1,7 @@
 {
   "name": "geoayto",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
